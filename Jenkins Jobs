@@ -1,0 +1,16 @@
+
+Jenkins Job 1
+sudo cp *  -rp  /DevOpsAL/
+sudo python3 /email/mail.py
+
+
+Jenkins Job 2
+sudo cp -rp /DevOpsAL/*  /var/www/html/
+sudo kubectl create deployment  prometheusjenkins --image=samkitshah20/prometheus:v1
+sudo kubectl expose deploy prometheusjenkins --port 9100 --type=NodePort
+sudo kubectl create deployment  grafanajenkins --image=samkitshah20/grafana:v1
+sudo kubectl expose deploy grafanajenkins --port 3000 --type=NodePort
+sudo python3 /email/mail2.py
+
+Jenkins Job 3 
+sudo python3 /email/mail3.py   #it will run only if job2 is successfully executede.
