@@ -1,0 +1,21 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                build job: 'JenkinsJob1' 
+            }
+        }
+        stage('Test') { 
+            steps {
+                build job: 'JenkinsJob2'
+                input message: 'Approved ? '
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                build job: 'JenkinsJob3' 
+            }
+        }
+    }
+}
